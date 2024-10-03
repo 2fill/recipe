@@ -1,6 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import "./globals.css";
+import {Gochi_Hand} from 'next/font/google';
+
+const gochiHand = Gochi_Hand({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,10 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang = "en" className = {gochiHand.className}>
       <body>
           <div className = "navbar">
-            <Link href = "/">Reci-pick 👨🏻‍🍳</Link>
+            <Link href = "/">
+              Reci-pick
+              <span className = "icon">👨🏻‍🍳</span>
+            </Link>
             <div className = "bubble">
               <span>What's your pick?</span>
             </div>
