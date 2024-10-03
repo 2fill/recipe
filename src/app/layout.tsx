@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
           <div className = "navbar">
-            <Link href = "/">흑백레시피</Link>
+            <Link href = "/">Reci-pick!</Link>
           </div>
           {children} {/* page.js 들어가는 곳 */}
       </body>
