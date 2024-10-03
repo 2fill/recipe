@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, useState} from 'react';
-import {useRouter} from 'next/router';
+import {useRouter, useSearchParams} from 'next/navigation';
 
 interface MenuItem {
     idMeal: string;
@@ -10,16 +10,17 @@ interface MenuItem {
 }
 
 const Menu: React.FC = () => {
-    const router = useRouter();
-    const {id} = router.query;
+    const searchParams = useSearchParams();
+    const name = searchParams.get('name');
+
     const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
         const fetchMenuItems = async () => {
-            if (id) {
+            if (name) {
                 try {
-                    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${id}`);
+                    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`);
                     const data = await response.json();
                     setMenuItems(data.meals || []);
                 }
@@ -33,13 +34,13 @@ const Menu: React.FC = () => {
         };
 
         fetchMenuItems();
-    }, [id]);
+    }, [name]);
 
     return (
         <div>
-            <h1>Menu for Category ID: {id}</h1>
+            <h1>Menu for Category ID: {name}</h1>
             {loading ? (
-                <p>Loading menu items...</p>
+                <p>Loading... ⏲️</p>
             ) : menuItems.length > 0 ? (
                 <div className = "menu-items">
                     {menuItems.map((item) => (
