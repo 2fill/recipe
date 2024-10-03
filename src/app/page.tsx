@@ -1,6 +1,3 @@
-'use client';
-
-import {useEffect, useState} from "react";
 import Link from "next/link";
 
 interface Category{
@@ -9,22 +6,14 @@ interface Category{
     strCategoryThumb: string;
 }
 
-const Home: React.FC = () => {
-    const[categories, setCategories] = useState<Category[]>([]);
+const fetchCategory = async (): Promise <Category[]> => {
+    const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
+    const data = await response.json();
+    return data.categories;
+};
 
-    useEffect(()=>{
-        const fetchCategory = async () => {
-            try{
-                const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
-                const data = await response.json();
-                setCategories(data.categories);
-            }
-            catch(error){
-                console.error("Failed to fetch category: ", error);
-            }
-        };
-        fetchCategory();
-    }, []);
+const Home = async() => {
+    const categories: Category[] = await fetchCategory();
     
     return(
         <div className = "page">
@@ -32,7 +21,7 @@ const Home: React.FC = () => {
             {categories.length > 0 ? (
                 categories.map((category) => (
                 <Link href = {`/menu?name=${encodeURIComponent(category.strCategory)}`} key = {category.idCategory}>
-                    <div className = "category" key = {category.idCategory}>
+                    <div className = "category">
                         <img src = {category.strCategoryThumb} alt = {category.strCategory} className = "category-img" />
                         <h4 className = "category-name">{category.strCategory}</h4>
                     </div>
