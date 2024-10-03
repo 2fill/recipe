@@ -1,40 +1,69 @@
+/* layout.tsx */
+
 .navbar{
-    background: white;
     padding: 20px;
+    font-family: "Danjo";
+    font-size: 30px;
+    font-weight: 700;
+    background-color: black;
 }
 
 .navbar a{
     margin-right: 10px;
     text-decoration: none;
+    color: white;
 }
 
 body{
     margin: 0;
-    background: #303030;
-    color: white;
-}
-
-.title{
-    text-align: center;
-    margin-top: 50px;
-}
-
-.title-sub{
-    text-align: center;
-}
-
-.food{
-    margin: 20px auto;
-    width: 200px;
     background: white;
     color: black;
-    padding: 20px;
-    border-radius: 5px;
 }
 
-.food-img{
+.login{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.login a{
+    color: black;
+    font-family: "Danjo";
+    font-size: 25px;
+}
+
+/* list - page.tsx */
+
+.page{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-title{
+    margin: 50px 0;
+    width: 100%;
+    text-align: center;
+    font-family: "Danjo";
+    font-size: 20px;
+}
+
+.category{
+    margin: 0 5%;
+    width: 150px;
+    background: white;
+    color: black;
+}
+
+.category-name{
+    text-align: center;
+    font-family: "Danjo";
+    font-size: 17px;
+}
+
+.category-img{
     width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
 .cart-item{
@@ -43,4 +72,11 @@ body{
     justify-content: space-around;
     border-bottom: 1px solid grey;
     line-height: 0px;
+}
+
+@font-face {
+    font-family: "Danjo";
+    font-weight: normal;
+    font-style: normal;
+    src: url('./fonts/Danjo.woff') format('woff');
 }

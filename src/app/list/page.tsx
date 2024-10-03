@@ -1,15 +1,15 @@
 export default function List() { 
-    let 상품 = ['Tomatoes', 'Pasta', 'Coconut'] // arr
+    let 카테고리 = ['한식', '중식', '일식', '양식'] // arr
 
     return (
-    <div>
-        <h4 className = "title">상품 목록</h4>
+    <div className = "page">
+        <h4 className = "category-title">카테고리</h4>
         {
-            상품.map((a, i)=>{
+            카테고리.map((a, i)=>{
                 return(
-                    <div className = "food" key = {i}>
-                        <img src = {`/${i + 1}.jpg`} className = "food-img" />
-                        <h4>{a} $40</h4>
+                    <div className = "category" key = {i}>
+                        <img src = {`/${i + 1}.jpg`} className = "category-img" />
+                        <h4 className = "category-name">{a}</h4>
                     </div>
                 )   
             })

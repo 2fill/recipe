@@ -1,18 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,8 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
           <div className = "navbar">
-            <Link href = "/">흠</Link>
-            <Link href = "./list">List</Link>
+            <Link href = "/">흑백레시피</Link>
           </div>
           {children} {/* page.js 들어가는 곳 */}
       </body>
