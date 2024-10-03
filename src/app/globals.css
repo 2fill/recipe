@@ -1,6 +1,9 @@
 /* layout.tsx */
 
 .navbar{
+    display: flex;
+    align-items: center;
+    position: relative;
     padding: 20px;
     font-weight: 700;
     background-color: #E12403;
@@ -14,6 +17,27 @@
     font-size: 40px;
 }
 
+.bubble{
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    padding: 10px 15px; 
+    color: #E6543B; 
+    margin-left: 10px;
+    font-family: "GochiHand";
+}
+
+.bubble::after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 100%;
+    margin-left: -173px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -21,16 +45,7 @@ body{
     color: black;
 }
 
-.login{
-    text-align: center;
-    margin-top: 100px;
-}
 
-.login a{
-    color: 	#EE6EA0;
-    font-family: "GochiHand";
-    font-size: 50px;
-}
 
 /* page.tsx */
 
@@ -78,14 +93,6 @@ body{
 
 a{
     text-decoration: none;
-}
-
-.cart-item{
-    padding: 10px;
-    display: flex;
-    justify-content: space-around;
-    border-bottom: 1px solid grey;
-    line-height: 0px;
 }
 
 .loading{

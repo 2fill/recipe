@@ -31,12 +31,12 @@ const Home: React.FC = () => {
             <h4 className = "category-title">Category</h4>
             {categories.length > 0 ? (
                 categories.map((category) => (
-                  <Link href = {`/menu?name=${encodeURIComponent(category.strCategory)}`} key = {category.idCategory}>
+                <Link href = {`/menu?name=${encodeURIComponent(category.strCategory)}`} key = {category.idCategory}>
                     <div className = "category" key = {category.idCategory}>
                         <img src = {category.strCategoryThumb} alt = {category.strCategory} className = "category-img" />
                         <h4 className = "category-name">{category.strCategory}</h4>
                     </div>
-                  </Link>
+                </Link>
                 ))
             ) : (
                 <p className = "loading"> Loading... ⏲️ </p>
