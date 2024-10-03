@@ -30,7 +30,7 @@
 .bubble::after {
     content: "";
     position: absolute;
-    top: 30%;
+    top: 10%;
     left: 100%;
     margin-left: -173px;
     border-width: 10px;

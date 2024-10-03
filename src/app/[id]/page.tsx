@@ -40,7 +40,7 @@ const Menu: React.FC = () => {
         <div>
             <h1 className = "menu-title">{name}</h1>
             {loading ? (
-                <p>Loading... ⏲️</p>
+                <p className = "loading">Loading... ⏲️</p>
             ) : menuItems.length > 0 ? (
                 <div className = "menu">
                     {menuItems.map((item) => (
