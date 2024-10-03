@@ -1,5 +1,4 @@
 /* layout.tsx */
-
 .navbar{
     display: flex;
     align-items: center;
@@ -48,7 +47,6 @@ body{
 
 
 /* page.tsx */
-
 .page{
     display: flex;
     flex-wrap: wrap;
