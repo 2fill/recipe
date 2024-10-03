@@ -38,11 +38,11 @@ const Menu: React.FC = () => {
 
     return (
         <div>
-            <h1>Menu for Category ID: {name}</h1>
+            <h1 className = "menu-title">{name}</h1>
             {loading ? (
                 <p>Loading... ⏲️</p>
             ) : menuItems.length > 0 ? (
-                <div className = "menu-items">
+                <div className = "menu">
                     {menuItems.map((item) => (
                         <div className = "menu-item" key = {item.idMeal}>
                             <img src = {item.strMealThumb} alt={item.strMeal} className = "menu-item-img" />
