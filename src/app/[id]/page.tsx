@@ -15,6 +15,7 @@ const Menu: React.FC = () => {
 
     const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const [filter, setFilter] = useState<string>('all');
 
     useEffect(() => {
         const fetchMenuItems = async () => {
@@ -36,14 +37,31 @@ const Menu: React.FC = () => {
         fetchMenuItems();
     }, [name]);
 
+    const alphabet = [...Array(26)].map((_, index) => String.fromCharCode(65 + index));
+
+    const filteredMenuItems = filter === 'all'
+        ? menuItems
+        : menuItems.filter(item => item.strMeal.charAt(0).toLowerCase() === filter);
+
     return (
         <div>
             <h1 className = "menu-title">{name}</h1>
+            <nav className = "menu-nav">
+                <button onClick={() => setFilter('all')}>All</button>
+                {alphabet.map(letter => {
+                    const startingLetter = menuItems.filter(item => item.strMeal.charAt(0).toLowerCase() === letter.toLowerCase());
+                    return startingLetter.length > 0 ? (
+                        <button key = {letter} onClick = {() => setFilter(letter.toLowerCase())}>
+                            {letter}
+                        </button>
+                    ) : null;
+                })}
+            </nav>
             {loading ? (
                 <p className = "loading">Loading... ⏲️</p>
             ) : menuItems.length > 0 ? (
                 <div className = "menu">
-                    {menuItems.map((item) => (
+                    {filteredMenuItems.map((item) => (
                         <div className = "menu-item" key = {item.idMeal}>
                             <img src = {item.strMealThumb} alt={item.strMeal} className = "menu-item-img" />
                             <h2 className = "menu-item-name">{item.strMeal}</h2>

@@ -232,6 +232,28 @@ a{
     transition: transform 0.2s;
 }
 
+.menu-nav{
+    display: flex;
+    justify-content: center;
+}
+
+.menu-nav button{
+    background-color: #E6543B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 5px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.menu-nav button:hover{
+    background-color: #E12403;
+    transform: scale(1.1);
+}
+
 .menu-item:hover .menu-item-img{
     transform: scale(1.1);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
