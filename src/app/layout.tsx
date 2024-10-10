@@ -32,6 +32,10 @@ children,
             <div className = "bubble">
               <span>What's your pick?</span>
             </div>
+            <Link href = "/cart" className = "cart">
+              <span className = "cart-icon">📖</span>
+              <span className = "cart-name">my pick</span>
+            </Link>
           </div>
           {children} {/* page.js 들어가는 곳 */}
       </body>

@@ -15,6 +15,23 @@
     font-size: 40px;
 }
 
+.cart{
+    margin-left: auto;
+    text-align: center;
+}
+
+.cart-icon{
+    font-size: 30px;
+}
+
+.cart-name{
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+    display: block;
+    margin-top: -15px;
+}
+
 @keyframes icon-move{
     0%{
         transform: rotate(-10deg);
